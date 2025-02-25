@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos > Horarios</title>
+    <link rel="stylesheet" href="CSS/styles_modulos_horarios.css">
+    <title>Módulo > Control de Ingreso</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="inviza_logo.png" alt="Logo de Inviza">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='menu_principal.html'">Regresar al Menú Principal</button>
+        </div>
+
+        <div class="container">
+            <h1>Módulos > Horarios</h1>
+
+            <button class="add-button">Agregar horario</button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Asignado a</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Horario 1</td>
+                        <td>Juan Pérez</td>
+                        <td>Activo</td>
+                        <td class="actions">
+                            <button class="edit-button">Editar</button>
+                            <button class="delete-button">Borrar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Horario 2</td>
+                        <td>María Gómez</td>
+                        <td>Inactivo</td>
+                        <td class="actions">
+                            <button class="edit-button">Editar</button>
+                            <button class="delete-button">Borrar</button>
+                        </td>
+                    </tr>
+                    <!-- Más filas de ejemplo -->
+                </tbody>
+            </table>
+
+            <div class="footer-controls">
+                <input type="text" placeholder="Buscar...">
+                <div>
+                    Mostrar filas:
+                    <select>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select> Página:
+                    <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                    <button>Ir a página</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>  contacto: INVIZA@gmail.com</p>
+        </footer>
+</body>
+
+</html>

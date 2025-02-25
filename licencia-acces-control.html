@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licencia Acceso Control</title>
+    <link rel="stylesheet" href="CSS/styles_licencia_acces_control.css">
+</head>
+
+<body>
+
+    <!-- Encabezado de la interfaz -->
+   
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza.jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='menu_principal.html'">Regresar al Menú Principal</button>
+        </div>
+   
+
+    <!-- Contenedor principal de la interfaz -->
+    <div class="container">
+        <!-- Formulario de Licencia Acceso Control -->
+        <div class="form-container">
+            <h2 style="text-align: center;">Licencia Acceso Control</h2>
+            <label for="autorizada">Autorizada a:</label>
+            <input type="text" id="autorizada" value="Nombre del Cliente" disabled>
+
+            <label for="idLicencia">ID Licencia:</label>
+            <input type="text" id="idLicencia" value="123456" disabled>
+
+            <label for="licenciaValida">Licencia válida hasta:</label>
+            <input type="text" id="licenciaValida" value="31/12/2024" disabled>
+
+            <label for="clientesSoportados">Clientes soportados:</label>
+            <input type="text" id="clientesSoportados" value="Cliente A, Cliente B" disabled>
+
+            <label for="empresasSoportadas">Empresas soportadas:</label>
+            <input type="text" id="empresasSoportadas" value="Empresa A, Empresa B" disabled>
+
+            <label for="sucursalesSoportadas">Sucursales soportadas:</label>
+            <input type="text" id="sucursalesSoportadas" value="Sucursal A, Sucursal B" disabled>
+
+            <div class="button-container">
+                <button onclick="window.location.href='menu_principal.html'">Regresar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000); // Actualiza cada segundo
+        updateTime(); // Llama la función al cargar la página
+    </script>
+    <footer>
+        <p>  contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

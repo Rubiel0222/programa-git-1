@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo > Control de Ingreso y Configuración de Datos</title>
+    <link rel="stylesheet" href="CSS/styles_configuracion_datos.css">
+    <script src="JS/configuracion datos.js" defer></script> <!-- Enlace al archivo script.js -->
+</head>
+<body>
+    <!-- Encabezado de la interfaz -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza.JPG">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='pagina_inicial.html'">Menú Principal</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la tabla -->
+    <div class="container">
+        <h2>Configuración > Datos</h2>
+
+        <!-- Botón para agregar un nuevo dato -->
+        <button onclick="alert('Agregar nuevo dato')">Agregar Dato</button>
+
+        <!-- Tabla de datos -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Etiqueta</th>
+                    <th>Tipo</th>
+                    <th>Requerido</th>
+                    <th>Estado</th>
+                    <th>Orden</th>
+                    <th>En Impresión</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">Nombre</td>
+                    <td contenteditable="true">Texto</td>
+                    <td contenteditable="true">Sí</td>
+                    <td contenteditable="true">Activo</td>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">Sí</td>
+                    <td>
+                        <button onclick="editarFila(this)">Editar</button>
+                        <button onclick="borrarFila(this)">Borrar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">Edad</td>
+                    <td contenteditable="true">Número</td>
+                    <td contenteditable="true">No</td>
+                    <td contenteditable="true">Inactivo</td>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">No</td>
+                    <td>
+                        <button onclick="editarFila(this)">Editar</button>
+                        <button onclick="borrarFila(this)">Borrar</button>
+                    </td>
+                </tr>
+                <!-- Se pueden agregar más filas según sea necesario -->
+            </tbody>
+        </table>
+
+        <!-- Barra de control inferior -->
+        <div class="control-bar">
+            <input type="text" placeholder="Buscar...">
+            <select>
+                <option value="5">Mostrar 5 filas</option>
+                <option value="10">Mostrar 10 filas</option>
+                <option value="20">Mostrar 20 filas</option>
+            </select>
+            <div>
+                Página:
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button>Ir a página</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateTime, 1000); // Actualiza cada segundo
+        updateTime(); // Llama la función al cargar la página
+
+        // Función para editar una fila
+        function editarFila(button) {
+            const row = button.parentElement.parentElement;
+            // Implementa la lógica para editar la fila
+            alert('Editar fila ' + row.rowIndex);
+        }
+
+        // Función para borrar una fila
+        function borrarFila(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+            alert('Fila borrada');
+        }
+    </script>
+
+    <footer>
+        <p>Contacto: INVIZA@gmail.com</p>
+    </footer>
+</body>
+</html>

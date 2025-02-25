@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Accesos - Módulos > Horarios</title>
+    <link rel="stylesheet" href="CSS/styles_control_modulos.css">
+    <script src="JS/modulos-horarios.js" defer></script> <!-- Enlace al archivo script.js -->
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de INVIZA.jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime"></div>
+            <button onclick="window.location.href='pagina_inicial.html'">pagina inicial</button>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>Modulos > Horarios</h1>
+
+        <!-- Botón para agregar horario -->
+        <a href="#" class="add-button">Agregar Horario</a>
+
+        <!-- Tabla -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Asignado a</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">Horario Matutino</td>
+                        <td contenteditable="true">Juan Pérez</td>
+                        <td contenteditable="true">Activo</td>
+                        <td>
+                            <button class="edit-button">Editar</button>
+                            <button class="delete-button">Borrar</button>
+                            <button class="save-button" style="display: none;">Guardar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">2</td>
+                        <td contenteditable="true">Horario Vespertino</td>
+                        <td contenteditable="true">María Gómez</td>
+                        <td contenteditable="true">Inactivo</td>
+                        <td>
+                            <button class="edit-button">Editar</button>
+                            <button class="delete-button">Borrar</button>
+                            <button class="save-button" style="display: none;">Guardar</button>
+                        </td>
+                    </tr>
+                    <!-- Más filas aquí -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Opciones de búsqueda y paginación -->
+        <div class="options">
+            <div class="search-bar">
+                <label for="search">Buscar:</label>
+                <input type="text" id="search" placeholder="Buscar horario...">
+            </div>
+
+            <div class="pagination">
+                <label for="rows">Mostrar filas:</label>
+                <select id="rows">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+
+                <label for="page">Página:</label>
+                <select id="page">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <button>Ir a página</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para la hora actual -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <footer>
+        <p>contacto: INVIZA@gmail.com</p>
+    </footer>
+</body>
+
+</html>

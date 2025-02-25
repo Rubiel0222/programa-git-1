@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVIZA Control de Accesos</title>
+    <link rel="stylesheet" href="CSS/styles_pagina_inicial.css">
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de INVIZA,jpg">
+        </div>
+        <div class="title">
+            INVIZA CONTROL DE ACCESOS
+        </div>
+        <div class="actions">
+            
+            <div class="time" id="currentTime"></div>
+            
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+
+        <!-- Barra lateral (módulos a la izquierda) -->
+        <div class="sidebar">
+            <div class="module">
+                    <a href="pagina principal.html">
+
+                            <img src="IMAGENES/modulos.jpg" alt="Modulos.jpg"> 
+                        </a>
+                                       
+                <span>Módulos</span>
+            </div>
+            <div class="module">
+                    <a href="registro_de_ usuario.html">
+
+                            <img src="IMAGENES/OIP.jpg" alt="OIP.jpg"> 
+                        </a>
+                
+                <span>Usuarios</span>
+            </div>
+            <div class="module">
+                    <a href="pagina principal.html">
+                            <a href="reportes_varios.html">
+
+                                    <img src="IMAGENES/reportes.jpg" alt="Reportes"> 
+                                </a>
+                                                                 
+                <span>Reportes</span>
+            </div>
+            <div class="module">
+                    <a href="pagina principal.html">
+                            <a href="configuracion_general.html">
+
+                                    <img src="IMAGENES/configuracion 1.jpg" alt="Configuración">
+                                </a>
+                                                                 
+                
+                <span>Configuración</span>
+            </div>
+            <div class="module">
+                    <a href="ayuda-descargas.html">
+
+                            <img src="IMAGENES/ayuda (1).jpg" alt="Ayuda">
+                        </a>
+                                                
+               
+                <span>Ayuda</span>
+            </div>
+        </div>                 
+          
+    </div>
+
+    <!-- Script para la hora actual -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <footer>
+        <p>  contacto: INVIZA@gmail.com</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVIZA Control de Accesos</title>
+    <link rel="stylesheet" href="CSS/styles_pagina_inicial.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de INVIZA,jpg">
+        </div>
+        <div class="title">
+            INVIZA CONTROL DE ACCESOS
+        </div>
+        <div class="actions">
+            <button class="access-button">Acceso</button>
+            <div class="time" id="currentTime"></div>
+            <button onclick="window.location.href='pagina_inicial.html'">Menú Principal</button>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+
+        <!-- Barra lateral (módulos a la izquierda) -->
+        <div class="sidebar">
+                <h1>Módulos Principales</h1>
+           
+                <img src="IMAGENES/configuracion 1.jpg" width="80" alt="configuracion">
+                <span>configuracion</span>
+                
+                    <div class="module">
+            </div>
+        </div>
+                                   
+            <div class="modules-grid">
+
+                <div class="module-item">
+                    <a href="configuración datos.html">
+
+                        <img src="IMAGENES/configuracion datos.jpg"  alt="configuracion">
+                    </a>                   
+                    <span>configuracion datos</span>
+                </div>
+                <div class="module-item">
+                    <a href="configuración-datos-edición.html">
+
+                        <img src="IMAGENES/configuracion edicion.jpg" alt="configuración-datos-edición"> 
+                    </a>                   
+                    <span>configuracion datos edicion</span>
+                </div>
+                <div class="module-item">
+                    <a href="configuración-variables.html"> 
+
+                        <img src="IMAGENES/configuracion variables.jpg" alt="configuración-variables">
+                    </a>                    
+                    <span>configuracion variables</span>             
+                    
+        </div>
+
+
+    <!-- Script para la hora actual -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <footer>
+        <p>  contacto: INVIZA@gmail.com</p>
+    </footer>
+</body>
+
+</html>

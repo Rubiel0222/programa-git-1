@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terceros > Empresas</title>
+    <link rel="stylesheet" href="CSS/styles_listas_negras_creacion_edicion.css">
+    <script src="JS/lista negra-creacion y edicion.js" defer></script> <!-- Enlace al archivo script.js -->
+</head>
+
+<body>
+
+    <!-- Encabezado de la interfaz -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza.jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='pagina principal.html'">pagina principal </button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la interfaz -->
+    <div class="container">
+        <h2 style="text-align: center;">Terceros > Empresas</h2>
+
+        <!-- Barra de búsqueda y controles -->
+        <div class="search-container">
+            <input type="text" placeholder="Buscar..." aria-label="Buscar">
+            <button>🔍</button>
+            <div class="page-controls">
+                <label for="pageSelect">Página:</label>
+                <select id="pageSelect" aria-label="Número de página">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button class="add-button">➕ Agregar Nuevo Registro</button>
+            </div>
+        </div>
+
+        <!-- Tabla de datos -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificador</th>
+                    <th>Datos</th>
+                    <th>Inf Adicional</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">Juan Pérez, Activo</td>
+                    <td contenteditable="true">Sin restricciones, - , Ninguna</td>
+                    <td>
+                        <button onclick="editRecord(this)">Editar</button>
+                        <button onclick="deleteRecord(this)">Borrar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">María López, Inactivo</td>
+                    <td contenteditable="true">Restricción de acceso, 01/01/2025, Observaciones aquí</td>
+                    <td>
+                        <button onclick="editRecord(this)">Editar</button>
+                        <button onclick="deleteRecord(this)">Borrar</button>
+                    </td>
+                </tr>
+                <!-- Agregar más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000); // Actualiza cada segundo
+        updateTime(); // Llama la función al cargar la página
+
+        // Función de búsqueda
+        function searchFunction() {
+            const input = document.querySelector('.search-container input[aria-label="Buscar"]').value.toLowerCase();
+            const rows = document.querySelectorAll('table tbody tr');
+            
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const rowData = Array.from(cells).map(cell => cell.textContent.toLowerCase());
+                const matches = rowData.some(data => data.includes(input));
+                row.style.display = matches ? '' : 'none';
+            });
+        }
+
+        // Función para agregar un nuevo registro
+        function addNewRecord() {
+            const tableBody = document.querySelector('table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td contenteditable="true">Nuevo ID</td>
+                <td contenteditable="true">Nuevo Dato</td>
+                <td contenteditable="true">Nueva Información</td>
+                <td>
+                    <button onclick="editRecord(this)">Editar</button>
+                    <button onclick="deleteRecord(this)">Borrar</button>
+                </td>
+            `;
+            tableBody.appendChild(newRow);
+            alert('Nuevo registro agregado');
+        }
+
+        // Función para editar un registro
+        function editRecord(button) {
+            const row = button.closest('tr');
+            const cells = row.querySelectorAll('td[contenteditable]');
+            
+            if (button.textContent === 'Editar') {
+                cells.forEach(cell => {
+                    const originalText = cell.textContent;
+                    cell.innerHTML = `<input type="text" value="${originalText}">`;
+                });
+                button.textContent = 'Guardar';
+            } else if (button.textContent === 'Guardar') {
+                cells.forEach(cell => {
+                    const input = cell.querySelector('input');
+                    cell.textContent = input.value;
+                });
+                button.textContent = 'Editar';
+            }
+        }
+
+        // Función para eliminar un registro
+        function deleteRecord(button) {
+            const row = button.closest('tr');
+            row.remove();
+            alert('Registro eliminado');
+        }
+    </script>
+    <footer>
+        <p>contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

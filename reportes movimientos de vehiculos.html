@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Accesos - Reportes > Movimientos de Vehículos</title>
+    <link rel="stylesheet" href="CSS/styles_reportes_movimientos_vehiculos.css">
+    <script src="JS/reportes movimientos vehiculos .js" defer></script>
+</head>
+
+<body>
+
+    <!-- Encabezado superior -->
+    <div class="header">
+        <img src="IMAGENES/logo_inviza.jpg" alt="Logo Inviza.jpg">
+        <h1>Control de Accesos</h1>
+        <div class="time">
+            <span id="current-time"></span>
+            <button onclick="window.location.href='pagina_inicial.html'">Menú Principal</button>
+        </div>
+    </div>
+
+    <!-- Sección principal -->
+    <div class="main">
+        <div class="form-container">
+            <h2>Reportes > Movimientos de Vehículos</h2>
+
+            <!-- Formulario de ingreso de datos (centrado) -->
+            <form>
+                <div class="form-group">
+                    <label for="fecha-inicial">Fecha inicial:</label>
+                    <input type="datetime-local" id="fecha-inicial" name="fecha-inicial">
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha-final">Fecha final:</label>
+                    <input type="datetime-local" id="fecha-final" name="fecha-final">
+                </div>
+
+                <div class="form-group">
+                    <label for="empresa">Empresa:</label>
+                    <input type="text" id="empresa" name="empresa">
+                </div>
+
+                <div class="form-group">
+                    <label for="sucursal">Sucursal:</label>
+                    <input type="text" id="sucursal" name="sucursal">
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula">
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">Placa:</label>
+                    <input type="text" id="placa" name="placa">
+                </div>
+
+                <!-- Checkbox para generar informe en Excel -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="excel" name="excel">
+                    <label for="excel">Generar informe en Excel</label>
+                </div>
+
+                <!-- Botones -->
+                <div class="button-group">
+                    <button type="submit">Generar Informe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

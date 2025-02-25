@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Negra > Creación y Edición > Edición</title>
+    <link rel="stylesheet" href="CSS/styles_listanegra.css">
+</head>
+
+<body>
+
+    <!-- Encabezado de la interfaz -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza.jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='menu_principal.html'">Regresar al Menú Principal</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la interfaz -->
+    <div class="container">
+        <h2 style="text-align: center;">Lista Negra > Creación y Edición > Edición</h2>
+
+        <!-- Formulario de ingreso de datos -->
+        <form>
+            <label for="documento">Documento:</label>
+            <input type="number" id="documento" name="documento" placeholder="Número de identificación" required>
+
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" placeholder="Nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Apellido" required>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="inactivo">Inactivo</option>
+                <option value="activo">Activo</option>
+            </select>
+
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="tipo1">Tipo 1</option>
+                <option value="tipo2">Tipo 2</option>
+                <option value="tipo3">Tipo 3</option>
+            </select>
+
+            <label for="observaciones">Observaciones:</label>
+            <input type="text" id="observaciones" name="observaciones" placeholder="Comentarios">
+
+            <!-- Contenedor de botones -->
+            <div class="button-container">
+                <button type="submit">💾 Guardar Información</button>
+                <button type="button" onclick="window.location.href='menu_principal.html'">Regresar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000); // Actualiza cada segundo
+        updateTime(); // Llama la función al cargar la página
+    </script>
+    <footer>
+        <p>  contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

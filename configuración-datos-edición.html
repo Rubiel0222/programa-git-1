@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo > Control de Ingreso</title>
+    <link rel="stylesheet" href="CSS/styles_configuracion_datos_edicion.css">
+    <script src="JS/configuracion datos edicion.js" defer></script>
+</head>
+<body>
+
+    <!-- Encabezado de la interfaz -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza.jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='pagina_inicial.html'">Menú Principal</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la interfaz -->
+    <div class="container">
+        <h2 style="text-align: center;">Configuración > Datos > Edición</h2>
+
+        <!-- Formulario de ingreso de datos -->
+        <form id="dataForm">
+            <label for="tipoVisualizacion">Tipo visualización:</label>
+            <select id="tipoVisualizacion" name="tipoVisualizacion">
+                <option value="opcion1">Opción 1</option>
+                <option value="opcion2">Opción 2</option>
+                <option value="opcion3">Opción 3</option>
+            </select>
+
+            <label for="etiqueta">Etiqueta:</label>
+            <input type="text" id="etiqueta" name="etiqueta" placeholder="Registro de etiqueta" required>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Registro de nombre" required>
+
+            <label for="activo">Activo:</label>
+            <select id="activo" name="activo">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="campoObligatorio">Campo obligatorio:</label>
+            <select id="campoObligatorio" name="campoObligatorio">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+                <option value="tipo1">Tipo 1</option>
+                <option value="tipo2">Tipo 2</option>
+                <option value="tipo3">Tipo 3</option>
+            </select>
+
+            <label for="apareceEnImpresion">Aparece en impresión:</label>
+            <select id="apareceEnImpresion" name="apareceEnImpresion">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="orden">Orden:</label>
+            <input type="text" id="orden" name="orden" placeholder="Registro de orden" required>
+
+            <label for="style">Style (atributo):</label>
+            <input type="text" id="style" name="style" placeholder="Registro de style">
+
+            <label for="valores">Valores:</label>
+            <input type="text" id="valores" name="valores" placeholder="Los valores de selección múltiple siempre van separados por espacios">
+        </form>
+
+        <!-- Nota sobre valores -->
+        <p style="text-align: center; font-style: italic;">Los valores de selección múltiple siempre van separados por espacio</p>
+
+        <!-- Botones para guardar y regresar -->
+        <div class="buttons">
+            <button type="button" onclick="guardarInformacion()">Guardar Información</button>
+            <button type="button" onclick="window.location.href='menu_principal.html'">Regresar</button>
+        </div>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+        setInterval(updateTime, 1000); // Actualiza cada segundo
+        updateTime(); // Llama la función al cargar la página
+    </script>
+    <footer>
+        <p>Contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+</html>

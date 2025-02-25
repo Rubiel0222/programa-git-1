@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correspondencia > Administración</title>
+    <link rel="stylesheet" href="CSS/styles_correspondencia_administracion.css">
+    <script src="JS/correspondencia-administracion.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Encabezado de la interfaz -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de Inviza,jpg">
+        </div>
+        <div class="title">
+            Control de Accesos
+        </div>
+        <div class="actions">
+            <div class="time" id="currentTime">
+                <!-- La hora actual se insertará aquí con JavaScript -->
+            </div>
+            <button onclick="window.location.href='pagina principal.html'">Página Principal</button>
+        </div>
+    </header>
+
+    <!-- Contenedor principal de la interfaz -->
+    <div class="container">
+        <h2 style="text-align: center;">Correspondencia > Administración</h2>
+
+        <!-- Encabezado de la tabla con búsqueda y opción para agregar correspondencia -->
+        <div class="table-header">
+            <div class="search">
+                <input type="text" placeholder="Buscar..." id="searchInput">
+                <button onclick="searchFunction()">🔍</button>
+                <!-- Icono de búsqueda -->
+            </div>
+            <div>
+                <label for="showRows">Mostrar:</label>
+                <select id="showRows" onchange="updateRows()">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <button class="add-button" onclick="addCorrespondence()">Agregar Correspondencia</button>
+            </div>
+        </div>
+
+        <!-- Tabla de correspondencia -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Info Correspondencia</th>
+                    <th>Responsable</th>
+                    <th>Destino</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="correspondenceTableBody">
+                <!-- Aquí se pueden agregar filas dinámicamente -->
+                <tr>
+                    <td contenteditable="true">1</td>
+                    <td contenteditable="true">Correspondencia A</td>
+                    <td contenteditable="true">Responsable 1</td>
+                    <td contenteditable="true">Destino A</td>
+                    <td>
+                        <button class="edit-button">Editar</button>
+                        <button class="delete-button">Borrar</button>
+                        <button class="save-button" style="display: none;">Guardar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">Correspondencia B</td>
+                    <td contenteditable="true">Responsable 2</td>
+                    <td contenteditable="true">Destino B</td>
+                    <td>
+                        <button class="edit-button">Editar</button>
+                        <button class="delete-button">Borrar</button>
+                        <button class="save-button" style="display: none;">Guardar</button>
+                    </td>
+                </tr>
+                <!-- Puedes agregar más filas aquí -->
+            </tbody>
+        </table>
+
+        <!-- Paginación -->
+        <div class="pagination">
+            <label for="pageNumber">Página:</label>
+            <select id="pageNumber">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <button onclick="goToPage()">Ir a página</button>
+        </div>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        // Función para actualizar la hora actual
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000); // Actual

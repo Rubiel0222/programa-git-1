@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Accesos - Reportes > Turnos</title>
+    <link rel="stylesheet" href="CSS/styles_reportes_turnos.css">
+    <script src="JS/reportes-turno.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Encabezado superior -->
+    <div class="header">
+        <img src="IMAGENES/logo_inviza.jpg" alt="Logo Inviza">
+        <h1>Control de Accesos</h1>
+        <div class="time">
+            <span id="current-time"></span>
+            <button onclick="window.location.href='pagina_Inicial.html'">Menú Principal</button>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main">
+        <h2>Reportes > Turnos</h2>
+
+        <div class="table-container">
+
+            <!-- Búsqueda -->
+            <div class="search-container">
+                <input type="text" placeholder="Buscar...">
+                <button><img src="search-icon.png" alt="Buscar" style="height: 20px;"></button>
+            </div>
+
+            <!-- Tabla -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Turno</th>
+                        <th>Operador</th>
+                        <th>Ingreso</th>
+                        <th>Salida</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo de fila -->
+                    <tr>
+                        <td contenteditable="true">1</td>
+                        <td contenteditable="true">Juan Pérez</td>
+                        <td contenteditable="true">08:00</td>
+                        <td contenteditable="true">16:00</td>
+                        <td contenteditable="true">2024-10-16 08:00</td>
+                        <td contenteditable="true">2024-10-16 16:00</td>
+                        <td>
+                            <button onclick="editarfila(this)">Editar</button>
+                            <button onclick="eliminarfila(this)">Borrar</button>
+                        </td>
+                    </tr>
+                    <!-- Añadir más filas según los datos -->
+                </tbody>
+            </table>
+
+            <!-- Paginación y opciones -->
+            <div class="pagination-container">
+                <div>
+                    <label for="rows">Mostrar filas:</label>
+                    <select id="rows">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="page">Página:</label>
+                    <select id="page">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div>
+                    <button onclick="irPagina()">Ir a página</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contacto: INVIZA@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

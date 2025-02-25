@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVIZA - Control de Accesos</title>
+    <link rel="stylesheet" href="CSS/styles_modulos.css">
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="IMAGENES/logo_inviza.jpg" alt="Logo de INVIZA.jpg">
+        </div>
+        <div class="title">
+            INVIZA CONTROL DE ACCESOS
+        </div>
+        <div class="actions">
+            <button class="access">Acceso</button>
+            <div class="time" id="currentTime"></div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+
+        <!-- Barra lateral izquierda con funcionalidades -->
+        <aside class="sidebar">
+            <h3>Funcionalidades</h3>
+            <ul class="menu">
+
+                <li><img src="modulos_icon.png" alt="Icono Módulos"> Módulos</li>
+                <li><img src="usuarios_icon.png" alt="Icono Usuarios"> Usuarios</li>
+                <li><img src="reportes_icon.png" alt="Icono Reportes"> Reportes</li>
+                <li><img src="configuracion_icon.png" alt="Icono Configuración"> Configuración</li>
+                <li><img src="ayuda_icon.png" alt="Icono Ayuda"> Ayuda</li>
+            </ul>
+        </aside>
+
+        <!-- Sección principal -->
+        <section class="main-content">
+            <div class="modules">
+                <div class="module">
+                    <a href="modulos_hotarios.html">
+
+                        <img src="central_icon.png" alt="Icono Central"> Módulo Central
+                    </a>
+
+                </div>
+                <div class="module">
+                    <img src="visitas_icon.png" alt="Icono Visitas"> Módulo Visitas
+                </div>
+                <div class="module">
+                    <img src="funcionarios_icon.png" alt="Icono Funcionarios"> Módulo Funcionarios
+                </div>
+                <div class="module">
+                    <img src="horarios_icon.png" alt="Icono Horarios"> Módulo Horarios
+                </div>
+                <div class="module">
+                    <img src="empresas_icon.png" alt="Icono Empresas"> Módulo Empresas
+                </div>
+                <div class="module">
+                    <img src="correspondencia_icon.png" alt="Icono Correspondencia"> Módulo Correspondencia
+                </div>
+                <div class="module">
+                    <img src="lista_negra_icon.png" alt="Icono Lista Negra"> Módulo Lista Negra
+                </div>
+                <div class="module">
+                    <img src="monitores_icon.png" alt="Icono Monitores"> Módulo Monitores
+                </div>
+                <div class="module">
+                    <img src="contratistas_icon.png" alt="Icono Contratistas"> Módulo Contratistas
+                </div>
+                <div class="module">
+                    <img src="hospedaje_icon.png" alt="Icono Hospedaje"> Módulo Hospedaje
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Script para mostrar la hora actual -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <footer>
+        <p>  contacto: INVIZA@gmail.com</p>
+    </footer>
+</body>
+
+</html>
